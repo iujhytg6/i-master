@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+.header{
+	box-shadow: 0 1px 3px rgba(0,0,0,.14);
+  background: hsla(0,0%,100%,.9);
+	position: relative;
+	line-height: 45px/$ppr;
+	height: 45px/$ppr;
+
+	h1{ font-size: 24px/$ppr; }
+
+}
+
+.footer{
+	height: 50px/$ppr;
+	background: #efefef;
+	padding-top: 10px/$ppr;
+	.footer__copyright{
+		color: #aaa9a9;
+		text-align: center;
+		padding: 10px/$ppr;
+	}
+}
+
+
+.jumbotron-main{
+	margin: auto;
+	max-width: 540px/$ppr;
+	min-height: calc(100vh - #{45px/$ppr} - #{50px/$ppr});
+}
+
+.normal-layer{
+	background-color: #fff;
+	margin-bottom: 12px/$ppr;
+	padding: 0 12px/$ppr;
+	border-top: 1px solid #DEDEDE;
+	border-bottom: 1px solid #DEDEDE;
+
+	&.no-padding-layer{ padding: 0; }
+
+	&.no-border-layer{ border: none; }
+
+	&.inherit-background-layer{ background-color: inherit; }
+	
+	&:first-of-type{ border: none; }
+
+	&:last-of-type{
+		margin-bottom: 0;
+	}
+
+}
+
+// --------------------------------
+// just for list feature item
+// --------------------------------
+.feature-list{
+
+	.tip-right{ float: right; }
+	.text-gray{ color: #999; }
+	.text-black{ color: #000; }
+
+	.feature-item-title{
+		color: #666;
+		border-bottom: 1px solid #eee;
+	}
+
+	.inner-bar{
+		padding: 14px/$ppr 12px/$ppr;
+		display: block;
+		&.select-bar{
+			position: relative;
+			display: block;
+			select{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				opacity: 0;
+				width: 100%;
+			}
+		}
+		&.label-bar{
+			position: relative;
+			display: block;
+			.label-field{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				opacity: 0;
+				width: 100%;
+			}
+		}
+	}
+
+	@at-root{
+		// gap
+		.border-gap-list .feature-item{
+			border-bottom: 1px solid #eee;
+			&:last-of-type{ border-bottom: 0; }
+		}
+
+		// active
+		.interaction-list .feature-item:not(.no-interaction-item):active{
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			background-color: #f0f0f0;
+		}
+
+	}
+
+}
+
+// --------------------------------
+// ticket list
+// --------------------------------
+
+$ticket-color-maps: (
+	gold: #F3D430,
+	red: 		#EC274C,
+	gray: 	#A7A5A5,
+);
+
+.ticket-list{
+	.ticket-item{
+		background-color: #fff;
+		margin: 10px/$ppr 0;
+   	/* box-shadow: 5px/$ppr 2px/$ppr 4px/$ppr -1px/$ppr rgba(0, 0, 0, 0.2); */		
+	}
+	.ticket-figure{
+		
+    background-size: 06px/$ppr 12px/$ppr ;
+		background-repeat: repeat-y;
+		position: relative;
+		min-height: 80px/$ppr;
+
+		@each $ticket-keyword, $ticket-color in $ticket-color-maps{
+
+			&.ticket-figure--#{$ticket-keyword}{
+				color: #fff;
+				background-color: $ticket-color;
+    		background-image: radial-gradient(circle at left, #efefef 50%, $ticket-color 50%);
+			}
+
+		}
+
+		strong{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			font-size: 30px/$ppr;
+		}
+	}
+	.ticket-caption{
+		padding: 10px/$ppr;
+		text-align: center;
+	}
+	h2{ margin-bottom: 5px/$ppr }
+}

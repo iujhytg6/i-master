@@ -1,0 +1,22 @@
+{
+  "name": "webapp-Vue",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "./bower_components"
+  ],
+  "dependencies": {
+    "vue": "~1.0.16",
+    "vue-router": "~0.7.5",
+    "vue-resource": "~0.1.17",
+    "normalize-css": "~3.0.3"
+  }
+}
